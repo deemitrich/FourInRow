@@ -6,6 +6,7 @@ const val firstSymbol = "|o"
 const val secondSymbol = "|*"
 const val countSimbol = 4
 
+// запрос на выбор какую игру играть
 fun setTheBoard(firstName: String, secondName: String) {
     println("Set the board dimensions (Rows x Columns)\nPress Enter for default (6 x 7)")
 
@@ -49,6 +50,7 @@ fun setTheBoard(firstName: String, secondName: String) {
     }
 }
 
+//отображение игрового поля
 fun seeTheBoard(placeGame: MutableList<MutableList<String>>) {
 
     for (i in 1..columns) {
@@ -67,7 +69,7 @@ fun seeTheBoard(placeGame: MutableList<MutableList<String>>) {
     println()
 }
 
-
+//процесс игры с заменой игрока
 fun playGame(
     firstName: String,
     firstSymbol: String,
@@ -130,7 +132,7 @@ fun playGame(
     }
 }
 
-
+// проверка совпадений по горизонтали
 fun checkHorizontal(placeGame: MutableList<MutableList<String>>, simbol: String): Boolean {
     for (rows in placeGame.indices) {
         for (columns in 0..placeGame[rows].size - countSimbol) {
@@ -149,6 +151,7 @@ fun checkHorizontal(placeGame: MutableList<MutableList<String>>, simbol: String)
     return false
 }
 
+// проверка совпадений по вертикали
 fun checkVertical(placeGame: MutableList<MutableList<String>>, simbol: String): Boolean {
     for (columns in placeGame[0].indices) {
         for (rows in 0 until placeGame.size - countSimbol + 1) {
@@ -167,6 +170,7 @@ fun checkVertical(placeGame: MutableList<MutableList<String>>, simbol: String): 
     return false
 }
 
+//проверка сопадений по диагонали
 fun checkDiagonal(placeGame: MutableList<MutableList<String>>, simbol: String): Boolean {
     for (rows in 0..placeGame.size - countSimbol) {
         for (columns in 0..placeGame[rows].size - countSimbol) {
@@ -199,6 +203,7 @@ fun checkDiagonal(placeGame: MutableList<MutableList<String>>, simbol: String): 
     return false
 }
 
+// проверка на заполненность
 fun isBoardFull(placeGame: MutableList<MutableList<String>>): Boolean {
     for (row in placeGame) {
         if (row.contains("| ")) {
@@ -208,7 +213,7 @@ fun isBoardFull(placeGame: MutableList<MutableList<String>>): Boolean {
     return true
 }
 
-
+// выбор игры: одиночная или мульти, 
 fun multiPlayerGame(
     firstName: String,
     firstSymbol: String,

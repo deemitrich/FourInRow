@@ -38,10 +38,6 @@ fun setTheBoard(firstName: String, secondName: String) {
                     println("Board columns should be from 5 to 9")
                     setTheBoard(firstName, secondName)
                 }
-                else -> {
-//                    println("$firstName VS $secondName")
-//                    println("$rows X $columns board")
-                }
             }
         } else {
             println("Invalid input")
